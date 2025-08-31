@@ -1,7 +1,7 @@
 ---
 title: "HW 01 - Pet names"
 subtitle: "Meet the toolkit"
-author: [Enter your name]
+author: "Nam Pham"
 output: 
   tufte::tufte_html:
     css: ../hw.css
