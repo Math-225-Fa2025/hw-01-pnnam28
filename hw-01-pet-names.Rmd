@@ -231,17 +231,37 @@ You can find out more about the dataset by inspecting its documentation (which c
 
 1.  According to the data dictionary, how many pets are included in this dataset?
 
-ANSWERS: 52,519 pets
+- ANSWERS: 52,519 pets
 
 🧶 ✅ ⬆️ *Write your answer in your R Markdown document under Exercise 1, knit the document, commit your changes with a commit message that says "Completed Exercise 1", and push. Make sure to commit and push all changed files so that your Git pane is cleared up afterwards.*
 
 2.  Again, according to the data dictionary, how many variables do we have for each pet?
 
-ANSWERS: 7 variables.
+- ANSWERS: 7 variables.
 
 🧶 ✅ ⬆️ *Write your answer in your R Markdown document under Exercise 2, knit the document, commit your changes with a commit message that says "Completed Exercise 2", and push. Make sure to commit and push all changed files so that your Git pane is cleared up afterwards.*
 
 3.  What are the three most common pet names in Seattle? To do this you will need to count the frequencies of each pet name and display the results in descending order of frequency so that you can easily see the top three most popular names. The following code does exactly that.
+
+- ANSWERS: NA, Lucy, and Charlie. Suprisingly, the most named pets are left NA which mean most of the pet are no name. 
+CODE: 
+seattlepets %>%
+  count(animal_name, sort = TRUE)
+OUTPUT: 
+ A tibble: 13,930 × 2
+   animal_name     n
+   <chr>       <int>
+ 1 NA            483
+ 2 Lucy          439
+ 3 Charlie       387
+ 4 Luna          355
+ 5 Bella         331
+ 6 Max           270
+ 7 Daisy         261
+ 8 Molly         240
+ 9 Jack          232
+10 Lily          232
+
 
 ```{marginfigure}
 The two lines of code can be read as "Start with the seattlepets data frame, and then count the animal_names, and display the results sorted in descending order. The 'and then' in the previous sentence maps to %>%, the pipe operator, which takes what comes before it and plugs it in as the first argument of the function that comes after it."
