@@ -316,6 +316,20 @@ seattlepets %>%
 
 1.  Based on the previous output we can easily identify the most common cat and dog names in Seattle, but the output is sorted by `n` (the frequencies) as opposed to being organized by the `species`. Build on the pipeline to arrange the results so that they're arranged by `species` first, and then `n`. This means you will need to add one more step to the pipeline, and you have two options: `arrange(species, n)` or `arrange(n, species)`. You should try both and decide which one organizes the output by species and then ranks the names in order of frequency for each species.
 
+seattlepets %>% 
++     group_by(species) %>%
++     count(animal_name, sort = TRUE) %>% 
++     slice_max(n, n = 5) %>%
++     arrange(species, n) 
+```r
+seattlepets %>% 
++     group_by(species) %>%
++     count(animal_name, sort = TRUE) %>% 
++     slice_max(n, n = 5) %>%
++     arrange(species, n) 
+```
+ANSWER: compare the arrange(species,n) and arrange(n,species). The aragument arrange(species,n) will be order the sort the species by alphabet and then will be follow by the n total number of names. When the arrange (n,species) will be sort the number of name first and then will be the species by alphabet order. 
+
 🧶 ✅ ⬆️ *Write your answer in your R Markdown document under Exercise 4. In this exercise you're asked to complete the code provided for you. You should insert the code in the code chunk provided for you, knit the document to see the output, and then write your narrative for the answer based on the output of this function, and knit again to see your narrative, code, and output in the resulting document. Then, commit your changes with a commit message that says "Completed Exercise 4", and push. Make sure to commit and push all changed files so that your Git pane is cleared up afterwards.*
 
 The following visualization plots the proportion of dogs with a given name versus the proportion of cats with the same name.
